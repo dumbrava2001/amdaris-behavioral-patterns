@@ -21,7 +21,7 @@ public class User : ISubscriber
             order.Status != OrderStatus.READY_FOR_SHIPPING) return;
 
         Console.WriteLine($"Sending email to {Email}");
-        Console.WriteLine($"Order:{order.Id} is {order.Status}");
+        Console.WriteLine($"Order:{order.Id}, price: {order.TotalPrice}$ is {order.Status}");
         Console.WriteLine("Email delivered...\n");
     }
 }
