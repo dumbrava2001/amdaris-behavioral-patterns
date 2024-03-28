@@ -20,6 +20,13 @@ public class Order : ISubject
 
     public void Subscribe(ISubscriber subscriber)
     {
+        var user = (User)subscriber;
+        var isSubscriberPresent = _subscribers
+            .Select(s => s as User).Count(u => u?.Email == user.Email && u.UserRole == user.UserRole);
+        if (isSubscriberPresent > 0)
+        {
+            return;
+        }
         _subscribers.Add(subscriber);
     }
 
